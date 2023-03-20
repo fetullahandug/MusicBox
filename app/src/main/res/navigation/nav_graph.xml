@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/musiclistFragment">
+
+    <fragment
+        android:id="@+id/musiclistFragment"
+        android:name="com.example.musicbox.ui.MusiclistFragment"
+        android:label="MusiclistFragment" >
+        <action
+            android:id="@+id/action_musiclistFragment_to_musicFragment"
+            app:destination="@id/musicFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/musicFragment"
+        android:name="com.example.musicbox.ui.MusicFragment"
+        android:label="MusicFragment" >
+        <argument
+            android:name="music_cover"
+            app:argType="integer" />
+        <argument
+            android:name="music_title"
+            app:argType="string" />
+        <argument
+            android:name="music_singer"
+            app:argType="string" />
+        <argument
+            android:name="music_length"
+            app:argType="string" />
+        <argument
+            android:name="music_index"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_musicFragment_to_musiclistFragment"
+            app:destination="@id/musiclistFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/ib_return"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/return_icon"
+            app:layout_constraintBottom_toTopOf="@+id/imageView_Cover_onMusic"
+            app:layout_constraintStart_toStartOf="@+id/imageView_Cover_onMusic" />
+
+        <ImageView
+            android:id="@+id/imageView_Cover_onMusic"
+            android:layout_width="370dp"
+            android:layout_height="375dp"
+            android:layout_marginTop="75dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/note_icon" />
+
+        <TextView
+            android:id="@+id/textView_musicTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            android:textSize="33sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/imageView_Cover_onMusic"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_Cover_onMusic"
+            tools:text="Music Title" />
+
+        <TextView
+            android:id="@+id/textView_music_singer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-5dp"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/textView_musicTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textView_musicTitle"
+            tools:text="Singer" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="0dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mb_play"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/round_button"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:paddingLeft="25dp"
+                android:text="play_button"
+                app:backgroundTint="@color/primary"
+                app:icon="@drawable/play_icon_main"
+                app:iconSize="30dp"
+                app:iconTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.213" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mb_next"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="35dp"
+                android:background="@drawable/round_button"
+                app:backgroundTint="@color/primary"
+                android:paddingLeft="17dp"
+                android:text="play_button"
+                app:icon="@drawable/next_icon"
+                app:iconSize="20dp"
+                app:iconTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/mb_play"
+                app:layout_constraintStart_toEndOf="@+id/mb_play"
+                app:layout_constraintTop_toTopOf="@+id/mb_play"
+                app:layout_constraintVertical_bias="0.48" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mb_previous"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="35dp"
+                android:background="@drawable/round_button"
+                app:backgroundTint="@color/primary"
+                android:paddingLeft="13dp"
+                android:text="play_button"
+                app:icon="@drawable/previous_icon"
+                app:iconSize="20dp"
+                app:iconTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/mb_play"
+                app:layout_constraintEnd_toStartOf="@+id/mb_play"
+                app:layout_constraintTop_toTopOf="@+id/mb_play"
+                app:layout_constraintVertical_bias="0.48" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
