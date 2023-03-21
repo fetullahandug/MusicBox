@@ -4,7 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
+        <variable
+            name="viewmodel"
+            type="com.example.musicbox.ui.MusicViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,18 +39,20 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="8dp"
+            android:text="@{viewmodel.currentSong.title}"
             android:textSize="33sp"
             android:textStyle="bold"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/imageView_Cover_onMusic"
             app:layout_constraintTop_toBottomOf="@+id/imageView_Cover_onMusic"
-            tools:text="Music Title" />
+            tools:text="Musik Komponent"/>
 
         <TextView
             android:id="@+id/textView_music_singer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-5dp"
+            android:text="@{viewmodel.currentSong.singer}"
             android:textSize="25sp"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/textView_musicTitle"

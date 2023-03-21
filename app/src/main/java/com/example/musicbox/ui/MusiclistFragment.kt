@@ -1,6 +1,5 @@
 package com.example.musicbox.ui
 
-import android.content.ClipData.Item
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.musicbox.R
 import com.example.musicbox.adapter.ItemAdapter
-import com.example.musicbox.data.Datasource
 import com.example.musicbox.data.MusicRepository
 import com.example.musicbox.databinding.FragmentMusiclistBinding
 
@@ -30,7 +28,7 @@ class MusiclistFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        var songs = MusicRepository().loadSongs()
+        var songs = MusicRepository().songList.value!!
         var recyclerview = binding.recylerViewSongList
 
         recyclerview.adapter = ItemAdapter(songs)

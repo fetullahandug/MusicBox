@@ -34,6 +34,9 @@ class MusicFragment : Fragment() {
             music_length = it.getString("music_length").toString()
             music_index = it.getInt("music_index")
         }
+
+        viewModel.cameFromListSetTrue()
+        viewModel.setFirstSongIndex(music_index)
     }
 
     override fun onCreateView(
@@ -41,11 +44,14 @@ class MusicFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_music,container, false)
+        binding = FragmentMusicBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.viewmodel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+
         binding.imageViewCoverOnMusic.setImageResource(music_cover)
         binding.textViewMusicTitle.text = music_title
         binding.textViewMusicSinger.text = music_singer
@@ -56,32 +62,24 @@ class MusicFragment : Fragment() {
         }
 
         binding.mbNext.setOnClickListener {
-            nextSongUpdateUI()
+            nextSongUI()
             cameFromList = false
         }
 
         binding.mbPrevious.setOnClickListener {
-            previousSongUpdateUI()
+            previousSongUI()
             cameFromList = false
         }
     }
 
-    fun nextSongUpdateUI() {
+    fun nextSongUI() {
         viewModel.nextSong(cameFromList, music_index)
         cameFromList = false
-
-        binding.imageViewCoverOnMusic.setImageResource(viewModel.currentSong.imageSource)
-        binding.textViewMusicTitle.text = viewModel.currentSong.title
-        binding.textViewMusicSinger.text = viewModel.currentSong.singer
     }
 
-    fun previousSongUpdateUI() {
+    fun previousSongUI() {
         viewModel.previousSong(cameFromList, music_index)
         cameFromList = false
-
-        binding.imageViewCoverOnMusic.setImageResource(viewModel.currentSong.imageSource)
-        binding.textViewMusicTitle.text = viewModel.currentSong.title
-        binding.textViewMusicSinger.text = viewModel.currentSong.singer
     }
 
 }
